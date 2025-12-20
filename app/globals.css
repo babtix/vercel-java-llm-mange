@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-yellow: #FCE300;
+  --neon-blue: #00D4FF;
+  --neon-pink: #FF2A6D;
+  --neon-green: #05FFA1;
+  --cyber-dark: #0A0A0F;
+  --cyber-darker: #050508;
+  --cyber-gray: #1A1A2E;
+  --cyber-border: #2D2D44;
+}
+
+body {
+  background-color: var(--cyber-dark);
+  color: #EDEDED;
+  font-family: 'Rajdhani', system-ui, sans-serif;
+}
+
+/* Cyberpunk Glow Effects */
+.neon-text-yellow {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 10px var(--neon-yellow), 0 0 20px var(--neon-yellow), 0 0 40px var(--neon-yellow);
+}
+
+.neon-text-blue {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+}
+
+.neon-border-yellow {
+  border-color: var(--neon-yellow);
+  box-shadow: 0 0 5px var(--neon-yellow), inset 0 0 5px rgba(252, 227, 0, 0.1);
+}
+
+.neon-border-blue {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 5px var(--neon-blue), inset 0 0 5px rgba(0, 212, 255, 0.1);
+}
+
+.cyber-card {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(10, 10, 15, 0.95) 100%);
+  border: 1px solid var(--cyber-border);
+  backdrop-filter: blur(10px);
+}
+
+.cyber-card:hover {
+  border-color: var(--neon-yellow);
+  box-shadow: 0 0 20px rgba(252, 227, 0, 0.2);
+}
+
+.cyber-button {
+  background: linear-gradient(135deg, var(--neon-yellow) 0%, #D4C000 100%);
+  color: #000;
+  font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.cyber-button:hover {
+  box-shadow: 0 0 30px var(--neon-yellow);
+  transform: translateY(-2px);
+}
+
+.cyber-button-outline {
+  background: transparent;
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
+  font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cyber-button-outline:hover {
+  background: var(--neon-blue);
+  color: #000;
+  box-shadow: 0 0 30px var(--neon-blue);
+}
+
+/* Scanline Effect */
+.scanlines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s ease infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyber-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-yellow);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-blue);
+}
+
+/* React Flow Custom Styles */
+.react-flow__node {
+  border-radius: 8px;
+}
+
+.react-flow__edge-path {
+  stroke: var(--neon-blue);
+  stroke-width: 2;
+}
+
+.react-flow__handle {
+  background: var(--neon-yellow) !important;
+  border: 2px solid var(--cyber-dark) !important;
+}
+
+/* Pulse Animation */
+@keyframes pulse-neon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+/* Grid Background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
